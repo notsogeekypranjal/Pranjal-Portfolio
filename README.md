@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pranjal Mishra — Portfolio
 
-## Getting Started
+Next.js 15 (App Router) portfolio with liquid-glass UI, aurora background, scroll-driven motion (Framer Motion), 3D hero (React Three Fiber), and tilt cards.
 
-First, run the development server:
+## Setup
 
 ```bash
+cd pranjal-portfolio
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Customize content
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+All copy, links, skills, projects, and experience live in `src/data/site.ts`. Add more `codingProfiles` entries for LeetCode, Kaggle, etc.
 
-## Learn More
+Resume file: place `PranjalMishraResume.pdf` in `public/`. The site links to it from the footer download block (`#resume`).
 
-To learn more about Next.js, take a look at the following resources:
+## Environment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Copy `.env.example` to `.env.local` and set:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `NEXT_PUBLIC_SITE_URL` — production URL (metadata and sitemap).
+- `RESEND_API_KEY`, `RESEND_FROM`, `RESEND_TO` — optional; when set, the contact form sends email via Resend instead of opening a mailto link.
+- `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` — optional Plausible analytics.
 
-## Deploy on Vercel
+## Deploy (Vercel)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Push the repo to GitHub.
+2. Import the project in [Vercel](https://vercel.com) with the default Next.js preset.
+3. Add environment variables in the Vercel project settings.
+4. Deploy. Assign your custom domain and update `NEXT_PUBLIC_SITE_URL` to match.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Stack
+
+Next.js 15, React 19, TypeScript, Tailwind CSS v4, Framer Motion, React Three Fiber, react-parallax-tilt, next-themes, Lucide (plus inline brand icons), Radix Slot.
