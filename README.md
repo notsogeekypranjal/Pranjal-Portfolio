@@ -1,6 +1,6 @@
 # Pranjal Mishra — Portfolio
 
-Next.js 15 (App Router) portfolio with liquid-glass UI, aurora background, scroll-driven motion (Framer Motion), 3D hero (React Three Fiber), and tilt cards.
+Next.js 16 (App Router) portfolio with liquid-glass UI, aurora background, scroll-driven motion (Framer Motion), 3D hero (React Three Fiber), and tilt cards.
 
 ## Setup
 
@@ -11,6 +11,8 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
+
+**Node:** use **v20.9+** (see `engines` in `package.json`). Matches Vercel’s default Node 20+ builds.
 
 ## Customize content
 
@@ -28,11 +30,14 @@ Copy `.env.example` to `.env.local` and set:
 
 ## Deploy (Vercel)
 
-1. Push the repo to GitHub.
-2. Import the project in [Vercel](https://vercel.com) with the default Next.js preset.
-3. Add environment variables in the Vercel project settings.
-4. Deploy. Assign your custom domain and update `NEXT_PUBLIC_SITE_URL` to match.
+1. Push **only this folder** as the repo root (or use a monorepo with Root Directory set to `pranjal-portfolio` in Vercel).
+2. Import the project in [Vercel](https://vercel.com) — framework **Next.js** is auto-detected.
+3. **Project → Settings → General → Node.js Version:** 20.x or 22.x.
+4. Add environment variables from `.env.example` in **Settings → Environment Variables**.
+5. Deploy. Set `NEXT_PUBLIC_SITE_URL` to your production URL.
+
+**If the build warns about multiple lockfiles:** avoid a `package-lock.json` in a parent directory above this project on your machine, or rely on `turbopack.root` in `next.config.ts` (already set to this project).
 
 ## Stack
 
-Next.js 15, React 19, TypeScript, Tailwind CSS v4, Framer Motion, React Three Fiber, react-parallax-tilt, next-themes, Lucide (plus inline brand icons), Radix Slot.
+Next.js 16, React 19, TypeScript, Tailwind CSS v4, Framer Motion, React Three Fiber, react-parallax-tilt, next-themes, Lucide (plus inline brand icons), Radix Slot.

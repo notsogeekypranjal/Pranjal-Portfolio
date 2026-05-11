@@ -9,7 +9,7 @@ import {
   Sphere,
 } from "@react-three/drei";
 import { useTheme } from "next-themes";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { startTransition, useEffect, useMemo, useRef, useState } from "react";
 import type { Group, Mesh, PointLight } from "three";
 import * as THREE from "three";
 
@@ -274,7 +274,9 @@ export function HeroScene({ scrollRef }: HeroSceneProps) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    startTransition(() => {
+      setMounted(true);
+    });
   }, []);
 
   const isLight = mounted && resolvedTheme === "light";

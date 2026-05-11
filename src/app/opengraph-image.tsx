@@ -1,13 +1,13 @@
 import { siteConfig } from "@/data/site";
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
-
 export const size = { width: 1200, height: 630 };
 
 export const contentType = "image/png";
 
 export default function OpenGraphImage() {
+  const meta = `${siteConfig.title} · ${siteConfig.location}`;
+
   return new ImageResponse(
     (
       <div
@@ -18,13 +18,15 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           justifyContent: "center",
           padding: 64,
-          background: "linear-gradient(135deg, #030306 0%, #1a1030 45%, #0c1220 100%)",
+          background:
+            "linear-gradient(135deg, #030306 0%, #1a1030 45%, #0c1220 100%)",
           color: "#f4f4f5",
           fontFamily: "system-ui, sans-serif",
         }}
       >
         <div
           style={{
+            display: "flex",
             fontSize: 56,
             fontWeight: 600,
             letterSpacing: "-0.04em",
@@ -33,11 +35,19 @@ export default function OpenGraphImage() {
         >
           {siteConfig.name}
         </div>
-        <div style={{ marginTop: 16, fontSize: 28, color: "#a78bfa" }}>
+        <div
+          style={{
+            display: "flex",
+            marginTop: 16,
+            fontSize: 28,
+            color: "#a78bfa",
+          }}
+        >
           {siteConfig.headline}
         </div>
         <div
           style={{
+            display: "flex",
             marginTop: 32,
             fontSize: 20,
             color: "#a1a1aa",
@@ -45,7 +55,7 @@ export default function OpenGraphImage() {
             lineHeight: 1.5,
           }}
         >
-          {siteConfig.title} · {siteConfig.location}
+          {meta}
         </div>
       </div>
     ),
