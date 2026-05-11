@@ -1,7 +1,6 @@
 import { siteConfig, siteUrl } from "@/data/site";
 import { IconGitHub, IconLinkedIn } from "@/components/icons/social";
 import { Download, Mail } from "lucide-react";
-import Link from "next/link";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
